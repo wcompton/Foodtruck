@@ -1,6 +1,7 @@
 package com.CALV.RilDilBBQ;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.CreatedDate;
@@ -28,31 +29,31 @@ public class ContactUs implements Serializable {
 	// auto, identity, sequence, and table.
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank
-	private String first_name;
-	
+	private String firstName;
+
 	@NotBlank
-	private String last_name;
-	
+	private String lastName;
+
 	@NotBlank
-	private String street_address;
-	
+	private String streetAddress;
+
 	@NotBlank
 	private String city;
-	
+
 	@NotBlank
 	private String state;
-	
-	@NotBlank
-	private int zip;
-	
-	@NotBlank
-	private int number_of_guests;
-	
+
+	@NotNull
+	private Long zip;
+
+	@NotNull
+	private Long numberOfGuests;
+
 	@NotBlank
 	@Lob
-	private String description_of_request;
+	private String descriptionOfRequest;
 	// This annotation allows the programmer to define the properties of the column
 	// in this case the field man not be null, and is not updatable.
 	@Column(nullable = false, updatable = false)
@@ -70,4 +71,104 @@ public class ContactUs implements Serializable {
 	// This annotation creates a field for the last update to the row
 	@LastModifiedDate
 	private Date updatedAt;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public Long getZip() {
+		return zip;
+	}
+
+	public void setZip(Long zip) {
+		this.zip = zip;
+	}
+
+	public Long getNumberOfGuests() {
+		return numberOfGuests;
+	}
+
+	public void setNumberOfGuests(Long numberOfGuests) {
+		this.numberOfGuests = numberOfGuests;
+	}
+
+	public String getDescriptionOfRequest() {
+		return descriptionOfRequest;
+	}
+
+	public void setDescriptionOfRequest(String descriptionOfRequest) {
+		this.descriptionOfRequest = descriptionOfRequest;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	@Override
+	public String toString() {
+		return "ContactUs [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", streetAddress="
+				+ streetAddress + ", city=" + city + ", state=" + state + ", zip=" + zip + ", numberOfGuests="
+				+ numberOfGuests + ", descriptionOfRequest=" + descriptionOfRequest + ", createdAt=" + createdAt
+				+ ", updatedAt=" + updatedAt + "]";
+	}
+
+
+
+
 }
