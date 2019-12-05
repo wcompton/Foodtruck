@@ -9,53 +9,50 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
-
 @Entity
 @Table(name = "locations")
 @EntityListeners(AuditingEntityListener.class)
-
 public class Location implements Serializable
-
 {
-	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	Date date;
-	
-	@NotBlank
+//	@NotBlank
 	String Address;
-	
-	
-
+	Double Lon;
+	Double Lat;
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	public Date getDate() {
 		return date;
 	}
-
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
 	public String getAddress() {
 		return Address;
 	}
-
 	public void setAddress(String address) {
 		Address = address;
 	}
-
-
-
+	public Double getLon() {
+		return Lon;
+	}
+	public void setLon(Double lon) {
+		Lon = lon;
+	}
+	public Double getLat() {
+		return Lat;
+	}
+	public void setLat(Double lat) {
+		Lat = lat;
+	}
 }
